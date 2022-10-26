@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import CourseDetails from './Components/courseDetails/CourseDetails';
 import Courses from './Components/courses/Courses';
 import Home from './Components/home/Home';
 import LogIn from './Components/login/LogIn';
@@ -26,6 +27,13 @@ function App() {
             return fetch('https://js-learning-liard.vercel.app/courses');
           },
           element: <Courses></Courses>
+        },
+        {
+          path: '/courses/:id',
+          loader: async ({ params }) => {
+            return fetch(`https://js-learning-liard.vercel.app/courses/${params.id}`)
+          },
+          element: <CourseDetails></CourseDetails>
         },
         {
           path: '/register',
