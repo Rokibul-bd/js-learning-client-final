@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -6,9 +6,9 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-    const { googleSignIn } = useContext(AuthContext);
+    const { googleSignIn, githubSignIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
-
+    const githubProvider = new GithubAuthProvider();
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
             .then(result => {
@@ -16,6 +16,14 @@ const Register = () => {
                 console.log(user)
             })
             .catch(error => console.error(error))
+    }
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch((error) => console.error(error))
     }
 
     return (
@@ -31,6 +39,12 @@ const Register = () => {
                                 <span className="label-text">Full Name</span>
                             </label>
                             <input type="text" placeholder="Name" name="name" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Image Url</span>
+                            </label>
+                            <input type="text" placeholder="Image url" name="imageUrl" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -51,6 +65,7 @@ const Register = () => {
                             <button className="btn btn-primary">Sign Up</button>
                         </div>
                         <button onClick={handleGoogleSignIn} className='btn btn-sm'>Google Sign In</button>
+                        <button onClick={handleGithubSignIn} className='btn btn-sm'>Github Sign In</button>
                     </div>
                 </div>
             </div>
