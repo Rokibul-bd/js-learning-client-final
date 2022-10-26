@@ -1,7 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <div className="navbar shadow-lg px-20">
@@ -30,7 +33,7 @@ const Header = () => {
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                             <li>
                                 <a href='/' className="justify-between">
-                                    Profile
+                                    {user?.displayName}
                                     <span className="badge">New</span>
                                 </a>
                             </li>
