@@ -22,6 +22,9 @@ function App() {
         },
         {
           path: "/courses",
+          loader: async () => {
+            return fetch('https://js-learning-liard.vercel.app/courses');
+          },
           element: <Courses></Courses>
         },
         {
