@@ -6,12 +6,9 @@ const Header = () => {
         <div>
             <div className="navbar shadow-lg px-20">
                 <div className="flex-1">
-                    <Link to="/home" className="normal-case text-4xl"> <span className='text-red-500'>Js</span> Learning</Link>
+                    <Link to="/courses" className="normal-case text-4xl"> <span className='text-red-500'>Js</span> Learning</Link>
                 </div>
                 <div className="flex-none gap-2">
-                    <div className="">
-                        <Link className='px-4 text-xl' to="/home">Home</Link>
-                    </div>
                     <div className="">
                         <Link className='px-4 text-xl' to="/courses">Courses</Link>
                     </div>

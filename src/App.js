@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import CourseDetails from './Components/courseDetails/CourseDetails';
 import Courses from './Components/courses/Courses';
-import Home from './Components/home/Home';
 import LogIn from './Components/login/LogIn';
 import Register from './Components/register/Register';
 import Main from './leyout/Main';
@@ -15,11 +14,10 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home></Home>
-        },
-        {
-          path: "/home",
-          element: <Home></Home>
+          loader: async () => {
+            return fetch('https://js-learning-liard.vercel.app/courses');
+          },
+          element: <Courses></Courses>
         },
         {
           path: "/courses",
