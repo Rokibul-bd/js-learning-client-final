@@ -11,7 +11,7 @@ const Course = ({ course }) => {
             <p className='my-4'>Price : {price}</p>
             <div className='flex justify-between'>
                 <Link to={`/courses/${id}`}><button className='text-xs md:text-lg bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-md text-white me-4'>View Details</button></Link>
-                <button className='text-xs ml-2 md:text-lg bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-md text-white '>Cheackout</button>
+
             </div>
         </div>
     );

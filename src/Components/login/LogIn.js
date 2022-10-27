@@ -1,9 +1,25 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const LogIn = () => {
+    const { logIn } = useContext(AuthContext)
+    const handleLogInSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target
+        const email = form.email.value;
+        const password = form.password.value;
+        logIn(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .then(error => console.error(error))
+        console.log(email, password)
+    }
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <form onSubmit={handleLogInSubmit} className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left mb-12">
                     <h1 className="text-5xl font-bold">Please Log in now!</h1>
@@ -14,13 +30,13 @@ const LogIn = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input type="email" placeholder="email" name="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="password" placeholder="password" name="password" className="input input-bordered" />
                             <label className="mt-2">
                                 New to website Please <Link to="/register" className="text-base link link-hover">Sign Up</Link>
                             </label>
@@ -31,7 +47,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     );
 };
 

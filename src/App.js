@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blog from './Components/blog/Blog';
+import CheackOut from './Components/cheackout/CheackOut';
 import CourseDetails from './Components/courseDetails/CourseDetails';
 import Courses from './Components/courses/Courses';
 import LogIn from './Components/login/LogIn';
@@ -46,6 +47,13 @@ function App() {
           path: '/login',
           element: <LogIn></LogIn>
         },
+        {
+          path: '/courses/:id/cheackout',
+          loader: async ({ params }) => {
+            return fetch(`https://js-learning-liard.vercel.app/courses/${params.id}`)
+          },
+          element: <CheackOut></CheackOut>
+        }
 
       ]
     }

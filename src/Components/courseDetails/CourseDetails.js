@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const details = useLoaderData();
-    const { name, body, imgUrl, duration, price } = details
+    const { name, body, imgUrl, duration, price, id } = details
     console.log(details)
     return (
         <div className='shadow-lg rounded-md md:w-1/3 mx-auto p-8 mt-28'>
@@ -12,7 +12,8 @@ const CourseDetails = () => {
             <p>{body}</p>
             <p className='text-lg my-4'>Course Duration : <small className='text-2xl text-teal-500'>{duration}</small> Hours</p>
             <p>Price : {price}</p>
-            <button className='text-lg px-4 py-2 shadow-md rounded-md my-4 bg-purple-600 hover:bg-purple-500 text-white'>Get Premium Purchase</button>
+            <Link to={`/courses/${id}/cheackout`}> <button className='text-lg px-4 py-2 shadow-md rounded-md my-4 bg-purple-600 hover:bg-purple-500 text-white'>Cheack Out</button></Link>
+
         </div>
     );
 };

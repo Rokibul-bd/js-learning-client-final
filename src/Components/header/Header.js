@@ -24,7 +24,7 @@ const Header = () => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     {
-                                        user?.uid ? <img src={user?.photoURL} alt="" /> : <BiUserCircle className='w-12 h-12'></BiUserCircle>
+                                        user?.uid ? <img src={user?.photoURL} alt="" /> : <BiUserCircle className='w-12 h-12 bg-purple-600'></BiUserCircle>
                                     }
 
                                 </div>
@@ -37,7 +37,7 @@ const Header = () => {
                                     </a>
                                 </li>
                                 <li><a href='/'>Setting</a></li>
-                                <li><a onClick={logOut} href='/'>Logout</a></li>
+                                <li><p onClick={logOut} >Logout</p></li>
                             </ul>
                         </div> : <>
                             <div className="">
