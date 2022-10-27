@@ -7,6 +7,7 @@ import Courses from './Components/courses/Courses';
 import LogIn from './Components/login/LogIn';
 import Register from './Components/register/Register';
 import Main from './leyout/Main';
+import PrivetRoute from './routes/PrivetRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -52,7 +53,7 @@ function App() {
           loader: async ({ params }) => {
             return fetch(`https://js-learning-liard.vercel.app/courses/${params.id}`)
           },
-          element: <CheackOut></CheackOut>
+          element: <PrivetRoute><CheackOut></CheackOut></PrivetRoute>
         }
 
       ]

@@ -21,7 +21,7 @@ const Header = () => {
                 <div className='md:hidden'>
                     <HiOutlineMenu onClick={handleMenu} className='w-12 h-12'></HiOutlineMenu>
                 </div>
-                <div className={view ? "flex-none block gap-2 absolute top-20 right-7 shadow-lg p-8" : "flex-none hidden md:flex gap-2 shadow-none relative top-0 right-0"}>
+                <div className={view ? "flex-none block gap-2 absolute top-10 right-7 shadow-lg p-8" : "flex-none hidden md:flex gap-2 shadow-none relative top-0 right-0 z-50"}>
                     <div className="">
                         <Link className='px-4 my-2 text-xl' to="/courses">Courses</Link>
                     </div>

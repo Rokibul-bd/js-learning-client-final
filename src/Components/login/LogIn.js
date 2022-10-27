@@ -19,7 +19,7 @@ const LogIn = () => {
         console.log(email, password)
     }
     return (
-        <form onSubmit={handleLogInSubmit} className="hero min-h-screen bg-base-200">
+        <form onSubmit={handleLogInSubmit} className="hero min-h-screen bg-base-200 pt-28">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left mb-12">
                     <h1 className="text-5xl font-bold">Please Log in now!</h1>

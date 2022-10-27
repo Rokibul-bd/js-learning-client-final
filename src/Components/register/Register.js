@@ -49,7 +49,7 @@ const Register = () => {
     }
 
     return (
-        <form onSubmit={handleFormSubmit} className="hero min-h-screen bg-base-200">
+        <form onSubmit={handleFormSubmit} className="hero min-h-screen bg-base-200 pt-28 z-10">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left mb-12">
                     <h1 className="text-5xl font-bold">Please Sign Up now!</h1>
