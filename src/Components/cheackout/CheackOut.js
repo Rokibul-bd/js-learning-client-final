@@ -1,12 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const CheackOut = () => {
     const data = useLoaderData();
+    const { user } = useContext(AuthContext);
     const { name, imgUrl, price } = data
-    console.log(data)
     return (
         <>
+            <h3 className='text-center text-3xl font-semibold mt-16'>Hello, {user.displayName} welcome to <span className='text-red-500'>{name} </span> course</h3>
             <div className='shadow-lg rounded-md md:w-1/3 mx-auto p-8 mt-28'>
                 <img className='w-full object-cover' src={imgUrl} alt="" />
                 <h4 className='my-12 text-4xl'>{name}</h4>

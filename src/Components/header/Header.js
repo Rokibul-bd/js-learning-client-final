@@ -33,19 +33,18 @@ const Header = () => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     {
-                                        user?.uid ? <img src={user?.photoURL} alt="" /> : <BiUserCircle className='w-12 h-12 bg-purple-600'></BiUserCircle>
+                                        user?.uid ? <img titile={user.displayName} src={user?.photoURL} alt="" /> : <BiUserCircle className='w-12 h-12 bg-purple-600'></BiUserCircle>
                                     }
-
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                                 <li>
-                                    <a href='/' className="justify-between">
+                                    <Link className="justify-between">
                                         {user?.displayName}
                                         <span className="badge">New</span>
-                                    </a>
+                                    </Link>
                                 </li>
-                                <li><a href='/'>Setting</a></li>
+                                <li><Link>Setting</Link></li>
                                 <li><p onClick={logOut} >Logout</p></li>
                             </ul>
                         </div> : <>

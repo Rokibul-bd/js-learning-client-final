@@ -11,6 +11,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
+    const [loadding, setLoadding] = useState(true)
     const googleSignIn = (googleProvider) => {
         signInWithPopup(auth, googleProvider)
     }
@@ -48,12 +49,13 @@ const AuthProvider = ({ children }) => {
         const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
             console.log("user inside state Change  : ", currentUser);
             setUser(currentUser)
+            setLoadding(false)
         });
         return () => {
             unsubcribe();
         }
     }, [])
-    const authInfo = { user, googleSignIn, logOut, githubSignIn, createUser, logIn, setUserProfile }
+    const authInfo = { user, loadding, googleSignIn, logOut, githubSignIn, createUser, logIn, setUserProfile}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
