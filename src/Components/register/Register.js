@@ -80,7 +80,7 @@ const Register = () => {
                             </label>
                             <input type="text" placeholder="password" name="password" className="input input-bordered" required />
                             <label className="mt-2">
-                                Already have an account please <Link to="/login" className="text-base link link-hover">log in</Link>
+                                Already have an account please <Link to="/login" className="text-base link link-hover btn-link">log in</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">

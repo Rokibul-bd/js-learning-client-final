@@ -3,14 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <>
-            <div className='w-1/3 mx-auto my-12 text-center'>
-                <label className="swap swap-flip text-9xl">
-                    <input type="checkbox" />
-                    <div className="swap-on">😂</div>
-                    <div className="swap-off">😇</div>
-                </label>
-            </div>
-            <div className='grid md:grid-cols-2 mx-12 gap-4'>
+            <div className='grid md:grid-cols-2 mx-12 gap-4 my-20'>
                 <div className='shadow-lg p-8 rounded-md my-20 mx-auto'>
                     <h3 className='my-2'>1. What is cors?</h3>
                     <p>Ans : The CORS mechanism supports secure cross-origin requests and data transfers between browsers and servers. Modern browsers use CORS in APIs such as XMLHttpRequest or Fetch to mitigate the risks of cross-origin HTTP requests.</p>

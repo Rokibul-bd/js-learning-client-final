@@ -38,7 +38,7 @@ const LogIn = () => {
                             </label>
                             <input type="password" placeholder="password" name="password" className="input input-bordered" />
                             <label className="mt-2">
-                                New to website Please <Link to="/register" className="text-base link link-hover">Sign Up</Link>
+                                New to website Please <Link to="/register" className="text-base btn-link link-hover">Sign Up</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">
