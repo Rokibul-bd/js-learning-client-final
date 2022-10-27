@@ -1,10 +1,13 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider()
     const handleRegisterForm = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,7 +21,12 @@ const Register = () => {
             })
             .catch(error => console.error(error))
     }
-
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+    }
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+    }
     return (
         <div>
             <form onSubmit={handleRegisterForm} className="hero min-h-screen bg-base-200 pt-28">
@@ -57,6 +65,10 @@ const Register = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn btn-primary">Log In</button>
+                            </div>
+                            <div className='flex justify-between'>
+                                <button className='btn btn-md' onClick={handleGoogleSignIn}>Google Sign In</button>
+                                <button className='btn btn-md' onClick={handleGithubSignIn}>Github Sign In</button>
                             </div>
                         </div>
                     </div>

@@ -44,7 +44,6 @@ const Header = () => {
                                         <span className="badge">New</span>
                                     </Link>
                                 </li>
-                                <li><Link>Setting</Link></li>
                                 <li><p onClick={logOut} >Logout</p></li>
                             </ul>
                         </div> : <>
