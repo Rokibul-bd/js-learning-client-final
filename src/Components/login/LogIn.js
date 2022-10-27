@@ -1,25 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const { logIn } = useContext(AuthContext)
+    const { logIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     const handleLogInSubmit = (e) => {
         e.preventDefault();
         const form = e.target
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
         logIn(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate('/')
+                navigate(from, { replace: true })
             })
-            .then(error => console.error(error))
-        console.log(email, password)
+            .catch(error => {
+                const errorMessage = error.message
+                setError(errorMessage)
+            })
+
     }
     return (
         <form onSubmit={handleLogInSubmit} className="hero min-h-screen bg-base-200 pt-28">
@@ -44,6 +50,7 @@ const LogIn = () => {
                                 New to website Please <Link to="/register" className="text-base btn-link link-hover">Sign Up</Link>
                             </label>
                         </div>
+                        <p className='text-read-500'>{error}</p>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Log In</button>
                         </div>

@@ -6,6 +6,7 @@ import CourseDetails from './Components/courseDetails/CourseDetails';
 import Courses from './Components/courses/Courses';
 import LogIn from './Components/login/LogIn';
 import Register from './Components/register/Register';
+import Route404 from './Components/Rount404/Route404';
 import Main from './leyout/Main';
 import PrivetRoute from './routes/PrivetRoute';
 
@@ -57,6 +58,10 @@ function App() {
         }
 
       ]
+    },
+    {
+      path: "*",
+      element: <Route404></Route404>
     }
   ])
   return (
