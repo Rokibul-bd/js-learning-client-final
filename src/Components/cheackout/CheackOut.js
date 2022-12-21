@@ -16,7 +16,7 @@ const CheackOut = () => {
             price,
             email: user.email
         }
-        fetch(`http://localhost:5000/booking`, {
+        fetch(`https://js-learning-rokibul-bd.vercel.app/booking`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

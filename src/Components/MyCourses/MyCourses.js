@@ -11,7 +11,7 @@ const MyCourses = () => {
     const email = user.email
 
     useEffect(() => {
-        fetch(`http://localhost:5000/booking/${email}`)
+        fetch(`https://js-learning-rokibul-bd.vercel.app/booking/${email}`)
             .then(res => res.json())
             .then(data => {
                 setCourses(data)
