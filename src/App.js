@@ -9,7 +9,9 @@ import Register from './Components/register/Register';
 import Route404 from './Components/Rount404/Route404';
 import Main from './leyout/Main';
 import PrivetRoute from './routes/PrivetRoute';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import MyCourses from './Components/MyCourses/MyCourses';
 function App() {
   const router = createBrowserRouter([
     {
@@ -42,6 +44,10 @@ function App() {
           element: <Blog></Blog>
         },
         {
+          path: '/mycourse',
+          element: <PrivetRoute><MyCourses></MyCourses> </PrivetRoute>
+        },
+        {
           path: '/register',
           element: <Register></Register>
         },
@@ -67,6 +73,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={router}></RouterProvider>
+      <ToastContainer />
     </div>
   );
 }

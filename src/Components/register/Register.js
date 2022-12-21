@@ -1,13 +1,14 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider()
+    const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
     const handleRegisterForm = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,6 +19,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate('/login')
             })
             .catch(error => console.error(error))
     }
@@ -64,7 +66,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button type='submit' className="btn btn-primary">Log In</button>
+                                <button type='submit' className="btn btn-primary">Sign Up</button>
                             </div>
                             <div className='flex justify-between'>
                                 <button className='btn btn-md' onClick={handleGoogleSignIn}>Google Sign In</button>

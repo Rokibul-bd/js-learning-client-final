@@ -29,6 +29,11 @@ const Header = () => {
                         <Link className='px-4 my-2 text-xl' to="/blog">Blog</Link>
                     </div>
                     {
+                        user?.uid && <div className="">
+                            <Link className='px-4 my-2 text-xl' to="/mycourse">My Course</Link>
+                        </div>
+                    }
+                    {
                         user?.uid ? <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
